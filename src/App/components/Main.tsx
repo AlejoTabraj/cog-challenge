@@ -1,34 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CreateCandidate from './candidate/CreateCandidate';
 import Principal from './candidate/Principal';
-
-const candidates = [
-  {
-    id: 'goncy',
-    name: 'Gonzalo Pozzo',
-    step: 'Entrevista técnica',
-    comments: 'Medio pelo'
-  },
-  {
-    id: 'doe',
-    name: 'John Doe',
-    step: 'Entrevista inicial',
-    comments: ''
-  }
-];
+import  candidates from '../../api/candidates.json'
 
 export default function App() {
   const [state, setState] = useState(candidates);
 
   const newCandidate = (candidate:any) => {
-    console.log(candidate)
     setState([...state, candidate]);
-    console.log(state)
   };
+  useEffect(()=>{
+    
+  })
   return (
     <>
-      <Principal state={state} setState={setState}/>
-      <CreateCandidate newCandidate={newCandidate} />
+      <Principal state={state} setState={setState} newCandidate={newCandidate}/>
     </>
   );
 }

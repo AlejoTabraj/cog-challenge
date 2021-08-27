@@ -15,23 +15,29 @@ const Modal = ({ newCandidate, done }:any) => {
   };
 
   const onChangeId = (e:any) => {
+    e.preventDefault();
     setCandidate({ ...candidate, id: e.target.value });
   };
   const onChangeName = (e:any) => {
+    e.preventDefault();
     setCandidate({ ...candidate, name: e.target.value });
   };
   const onChangeComments = (e:any) => {
+    e.preventDefault();
     setCandidate({ ...candidate, comments: e.target.value });
   };
   return (
-    <div className="modal">
-      {JSON.stringify(candidate)}
-      id
-      <input onChange={e => onChangeId(e)} />
-      name
-      <input onChange={e => onChangeName(e)} />
-      <input type="textarea" onChange={e => onChangeComments(e)} />
+    <div  className="modal">
+      <div className="modal-card">
+      <label htmlFor='id'>Id</label>
+      <input id='id' value={candidate.id} onChange={onChangeId} />
+      <label>Nombre</label>
+      <input value={candidate.name} onChange={e => onChangeName(e)} />
+      <label>Comentario</label>
+      <input value={candidate.comments} type="textarea" onChange={e => onChangeComments(e)} />
       <button onClick={e => handleClick(e)}>create</button>
+      </div>
+      <div onClick={ e => done()} className='close-modal'></div>
     </div>
   );
 };

@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
+import Portal from '../portal/Portal';
 import Modal from './Modal';
 
 const CreateCandidate = ({ newCandidate } : any ) => {
   const [create, setCreate] = useState(false);
+
   const done = () => {
     setCreate(!create)
   }
+  
   return (
     <div>
-      {create ? <Modal newCandidate={newCandidate} done={done}/> : null}
+      {create ?<Portal><Modal newCandidate={newCandidate} done={done}/></Portal> : null}
       <button onClick={e => setCreate(!create)}> Create a new candidate</button>
     </div>
   );

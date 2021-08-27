@@ -1,22 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+import CreateCandidate from './CreateCandidate';
 import Candidate from './Candidate';
 
-const candis = [
-  {
-    id: 'goncy',
-    name: 'Gonzalo Pozzo',
-    step: 'Entrevista técnica',
-    comments: 'Medio pelo'
-  },
-  {
-    id: 'doe',
-    name: 'John Doe',
-    step: 'Entrevista inicial',
-    comments: ''
-  }
-];
-
-export default function Principal({ setState, state }:any) {
+export default function Principal({ setState, state, newCandidate }:any) {
   const fields = [
     'Entrevista inicial',
     'Entrevista técnica',
@@ -25,8 +11,12 @@ export default function Principal({ setState, state }:any) {
     'Rechazo'
   ];
 
-  const updateFields = (index:any, newStep:any) => {
-    state[index].step = newStep;
+  const upadateComments = (index: any, comment:any) => {
+    state[`${index}`].comments = comment;
+    setState([...state]);
+  }
+  const updateFields = (index:Number, newStep:String) => {
+    state[`${index}`].step = newStep;
     setState([...state]);
   };
 
@@ -34,16 +24,20 @@ export default function Principal({ setState, state }:any) {
     <div className="wrapper">
         {fields &&
           fields.map(field => (
-            <div>
+            <div key={field}>
                 <h2>{field}</h2>
+                {field == fields[0]? <CreateCandidate newCandidate={newCandidate} />: null}
               {state &&
                 state.map((candidato:any, i:any) =>
                   candidato.step == field ? (
                     <Candidate
                       i={i}
                       updateFields={updateFields}
+                      updateComents={upadateComments}
                       name={candidato.name}
                       init={candidato.step}
+                      comments={candidato.comments}
+                      key={candidato + i}
                     />
                   ) : null
                 )}

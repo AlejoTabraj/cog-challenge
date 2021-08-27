@@ -1,0 +1,65 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    margin-top: 1rem;
+    width: 100%;
+    min-height: 70vh;
+    gap: 1%;
+    padding: 0 1%;
+  
+    div{
+      display: flex;
+      flex-direction: column;
+      flex-basis: calc(94 / 5 * 1%);
+      border: 1px solid rgb(212, 203, 203);
+      width: 100%;
+      padding: 1%;
+      margin: 1rem 0;
+      background-color: lightgray;
+     
+      @media (max-width: 500px){
+        flex-basis: 100%;
+      }    
+        article{
+          position: relative;
+          background-color: white;
+          border-radius: 5px;
+          margin: .2rem 0;
+          padding: 1%;
+          width: 100%;
+          .data {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-flow: wrap row;
+            border-color: rgb(128, 128, 129);
+            width: 100%;
+            flex-direction: initial;
+            flex-basis: 100%;
+            background-color: white;
+            border: none;
+  
+            .navigation {
+              display: flex;
+              flex-direction: initial;
+              padding: 0;
+              margin: 0;
+              background-color: white;
+            }
+            
+          }
+          textarea{
+            margin-left: .1rem;
+            flex-basis: 100%;
+            height: fit-content;
+            div {
+              background-color: white;
+              border: none;
+            }
+          }
+        }
+        
+      
+    }
+  }
