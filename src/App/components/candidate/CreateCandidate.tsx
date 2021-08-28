@@ -12,7 +12,7 @@ const CreateCandidate = ({ newCandidate } : any ) => {
   return (
     <div>
       {create ?<Portal><Modal newCandidate={newCandidate} done={done}/></Portal> : null}
-      <button onClick={e => setCreate(!create)}> Create a new candidate</button>
+      <button onClick={e => setCreate(!create)}>Agregar candidato</button>
     </div>
   );
 };

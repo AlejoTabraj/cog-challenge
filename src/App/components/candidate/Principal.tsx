@@ -1,6 +1,7 @@
 import React from 'react';
 import CreateCandidate from './CreateCandidate';
 import Candidate from './Candidate';
+import FieldLegend from '../elements/FieldLegend';
 
 export default function Principal({ setState, state, newCandidate }:any) {
   const fields = [
@@ -26,7 +27,8 @@ export default function Principal({ setState, state, newCandidate }:any) {
           fields.map(field => (
             <div key={field}>
                 <h2>{field}</h2>
-                {field == fields[0]? <CreateCandidate newCandidate={newCandidate} />: null}
+                {state && state.some( (candidate:any) => candidate.step == field) ? null : <FieldLegend/>}
+                {field == fields[0]? <CreateCandidate newCandidate={newCandidate} /> : null}
               {state &&
                 state.map((candidato:any, i:any) =>
                   candidato.step == field ? (
