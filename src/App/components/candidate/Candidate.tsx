@@ -26,7 +26,7 @@ const Candidate = ({ name, updateFields, i, init, comments, updateComents }:any)
         <button onClick={_ => handleClick(_, 'NEXT')}>{'>'}</button>
       </div>
       </div>
-      <p contentEditable onBlur={e => updateComents( i, e.target.textContent)}>{comments}</p>
+      <p suppressContentEditableWarning={true} contentEditable onBlur={e => updateComents( i, e.target.textContent)}>{comments}</p>
       
     </article>
   );
