@@ -1,38 +1,44 @@
 .wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-flow: row wrap;
     margin-top: 1rem;
     width: 100%;
     min-height: 70vh;
     gap: 1%;
-    padding: 0 1%;
+    padding: 0 1rem;
   
     div{
+      border-radius: 5px;
       display: flex;
       flex-direction: column;
-      flex-basis: calc(94 / 5 * 1%);
+      flex-basis: 100%;
       border: 1px solid rgb(212, 203, 203);
       width: 100%;
       padding: 1%;
-      margin: 1rem 0;
+      margin: .2rem 0;
       background-color: lightgray;
      
-      @media (max-width: 500px){
-        flex-basis: 100%;
-      }    
+      @media (min-width: 500px){
+        flex-basis: calc(94 / 2 * 1%);;
+      } 
+      @media (min-width: 900px){
+        flex-basis: calc(94 / 5 * 1%);;
+      }   
+        h4 {
+          margin: 1rem auto;
+          opacity: .7;
+        }
         article{
-          position: relative;
           background-color: white;
           border-radius: 5px;
           margin: .2rem 0;
-          padding: 1%;
+          padding: 1rem;
           width: 100%;
           .data {
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
-            flex-flow: wrap row;
             border-color: rgb(128, 128, 129);
             width: 100%;
             flex-direction: initial;
@@ -42,6 +48,7 @@
   
             .navigation {
               display: flex;
+              justify-content: flex-end;
               flex-direction: initial;
               padding: 0;
               margin: 0;
@@ -49,10 +56,9 @@
             }
             
           }
-          textarea{
-            margin-left: .1rem;
+          p{
+            margin-left: .2rem;
             flex-basis: 100%;
-            height: fit-content;
             div {
               background-color: white;
               border: none;

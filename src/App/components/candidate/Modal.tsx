@@ -35,7 +35,7 @@ const Modal = ({ newCandidate, done }:any) => {
       <input value={candidate.name} onChange={e => onChangeName(e)} />
       <label>Comentario</label>
       <input value={candidate.comments} type="textarea" onChange={e => onChangeComments(e)} />
-      <button onClick={e => handleClick(e)}>create</button>
+      <button onClick={e => handleClick(e)}>Crear</button>
       </div>
       <div onClick={ e => done()} className='close-modal'></div>
     </div>
