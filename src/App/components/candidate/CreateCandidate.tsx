@@ -10,7 +10,7 @@ const CreateCandidate = ({ newCandidate } : any ) => {
   }
   
   return (
-    <div>
+    <div className='btn-open-modal'>
       {create ?<Portal><Modal newCandidate={newCandidate} done={done}/></Portal> : null}
       <button onClick={e => setCreate(!create)}>Agregar candidato</button>
     </div>

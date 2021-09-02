@@ -32,7 +32,6 @@ export const CANDIDATE_STATE :any = {
     },
     methods: {
         updateState:  (state:String, evento: String)  => {
-            console.log(state, evento);
             return CANDIDATE_STATE.states[`${state}`]?.on?.[`${evento}`] || state;
           }
     }
